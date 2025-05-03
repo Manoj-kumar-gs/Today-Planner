@@ -125,8 +125,8 @@ const Todo = () => {
 
         <div className="second w-[90%] h-[10%] flex flex-col justify-between items-start ">
           {editingId ? (<div className='font-medium text-[20px] text-balance'>Update to Tasks List</div>) : (<div className='font-medium text-[20px] text-balance'>Add To Tasks List</div>)}
-          <div className='w-[90%] flex justify-center items-center gap-5  pt-2'>
-            <input type="text" name="task" id="task" className='border border-gray-500 rounded-lg w-[90%] px-3 py-0.5' onChange={handlerTask} onKeyDown={handlerKey} value={Todo} />
+          <div className='w-[90%] flex justify-center items-center gap-5  pt-2 '>
+            <input type="text" name="task" id="task" className='border border-gray-500 rounded-lg w-[90%] px-3 py-1 text-[14px]' onChange={handlerTask} onKeyDown={handlerKey} value={Todo} />
             {editingId ? (
               <button className='bg-green-500 rounded-md w-15 h-8 text-white flex justify-center items-center font-medium cursor-pointer shadow-md active:scale-95 active:bg-green-700 active:shadow-inner transition-all duration-150 hover:shadow-inner hover:bg-green-700' onClick={handlerUpdate}>Update</button>
             ) : (
@@ -135,8 +135,8 @@ const Todo = () => {
           </div>
         </div>
 
-        <div className="third w-[90%] h-[70%] overflow-y-auto hide-scrollbar">
-          <div className='flex justify-between items-center my-5'>
+        <div className="third w-[90%] h-[65%] overflow-y-auto hide-scrollbar">
+          <div className='flex justify-between items-center mb-5 mt-10'>
             <div className='font-medium text-[20px] text-balance'>Today's Tasks</div>
             <div className='w-[50%] flex justify-end items-center gap-2'>
               <input type="checkbox" name="checkbox" id="checkbox" checked={Showfinished} onChange={handlerShowfinished} className='font-bold' />
