@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+body{
+    
+  font-family: "Comic Relief", system-ui;
+  font-weight: 400;
+}

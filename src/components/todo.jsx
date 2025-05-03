@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { getDayName } from './navbar'
-import { RiDeleteBin5Fill } from "react-icons/ri";
 import { TbEdit } from "react-icons/tb";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -69,6 +69,8 @@ const Todo = () => {
   };
 
   const handlerDelete = (e, id) => {
+    const c = confirm("Are you sure you want to delete this task?");
+    if (!c) return;
     const updatedArr = Todos.filter(item => item.id !== id);
     setTodos(updatedArr);
     toast.success("🗑️ Task Deleted!", {
@@ -128,7 +130,7 @@ const Todo = () => {
             {editingId ? (
               <button className='bg-green-500 rounded-md w-15 h-8 text-white flex justify-center items-center font-medium cursor-pointer shadow-md active:scale-95 active:bg-green-700 active:shadow-inner transition-all duration-150 hover:shadow-inner hover:bg-green-700' onClick={handlerUpdate}>Update</button>
             ) : (
-              <button className='bg-green-500 rounded-md w-15 h-8 text-white flex justify-center items-center font-medium cursor-pointer shadow-md active:scale-95 active:bg-green-700 active:shadow-inner transition-all duration-150 hover:shadow-inner hover:bg-green-700' onClick={handlerAdd}>Add</button>
+              <button className='bg-green-500 rounded-md w-15 h-8 text-white flex justify-center items-center font-medium cursor-pointer shadow-md active:scale-95 active:bg-green-600 active:shadow-inner transition-all duration-150 hover:shadow-inner hover:bg-green-700' onClick={handlerAdd}>Add</button>
             )}
           </div>
         </div>
@@ -152,8 +154,20 @@ const Todo = () => {
                   <div className={`text-balance font-[500] ${item.isCompleted ? "line-through text-green-500" : "text-red-500"}`}>{item.task}</div>
                 </div>
                 <div className='flex justify-center items-center gap-1'>
-                  <button className="edit bg-green-500 rounded-md w-15 h-8 text-white flex justify-center items-center font-medium cursor-pointer shadow-md active:scale-95 active:bg-green-700 active:shadow-inner transition-all duration-150 hover:shadow-inner hover:bg-green-700" onClick={(e) => handlerEdit(e, item.id)}><TbEdit /></button>
-                  <button className="delete bg-green-500 rounded-md w-15 h-8 text-white flex justify-center items-center font-medium cursor-pointer shadow-md active:scale-95 active:bg-green-700 active:shadow-inner transition-all duration-150 hover:shadow-inner hover:bg-green-700" onClick={(e) => handlerDelete(e, item.id)}><RiDeleteBin5Fill /></button>
+                <button className='hover:cursor-pointer px-1'onClick={(e) => handlerEdit(e, item.id)}>
+                                                <lord-icon
+                                                    src="https://cdn.lordicon.com/gwlusjdu.json"
+                                                    trigger="hover"
+                                                    style={{ width: "17px", height: "20px" }}>
+                                                </lord-icon>
+                                            </button>
+                                            <button className='hover:cursor-pointer px-1' onClick={(e) => handlerDelete(e, item.id)}>
+                                                <lord-icon
+                                                    src="https://cdn.lordicon.com/skkahier.json"
+                                                    trigger="hover"
+                                                    style={{ width: "17px", height: "20px" }}>
+                                                </lord-icon>
+                                            </button>
                 </div>
               </div>
             )))
