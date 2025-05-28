@@ -1,7 +1,7 @@
 # ✅ Today Planner
 
 A simple, local-storage-based task manager for organizing and tracking your daily tasks.
-
+ 
 ---
 
 ## 📸 Screenshots
